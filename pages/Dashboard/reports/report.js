@@ -16,41 +16,42 @@ function generateReportContent() {
 
   const reportHTML = `
   <!DOCTYPE html>
-<html>
-<head>
-  <title>Transaction Report</title>
-</head>
-<body style="font-family: Arial, sans-serif; padding: 20px;">
-  <h1 style="text-align: center; font-size: 12px; color: #336699;">Transaction Report</h1>
-  <br>
-  <div class="balance" style="margin-bottom: 20px; color: #336699;">
-    <h3 style="font-size: 10px;">Balance</h3>
-    <p style="font-weight: bold; font-size: 10px;">${Utils.formatCurrency(balance)}</p>
-  </div>
-  <br>
-  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-    <tr>
-      <th style="padding: 10px; text-align: left; font-size: 10px; color: green;">Income</th>
-      <th style="padding: 10px; text-align: left; font-size: 10px; color: red;">Expense</th>
-    </tr>
-    <tr>
-      <td style="padding: 10px; text-align: left; font-size: 10px;">${Utils.formatCurrency(incomes)}</td>
-      <td style="padding: 10px; text-align: left; font-size: 10px;">${Utils.formatCurrency(expenses)}</td>
-    </tr>
-  </table>
-  <br>
-  <h3 style="color: #336699;">Transactions</h3>
-  <table style="width: 100%; border-collapse: collapse;">
-    <tr>
-      <th style="padding: 10px; text-align: left; font-size: 10px; color: #336699;">Description</th>
-      <th style="padding: 10px; text-align: left; font-size: 10px; color: #336699;">Amount</th>
-      <th style="padding: 10px; text-align: left; font-size: 10px; color: #336699;">Date</th>
-    </tr>
-    ${transactionsHTML}
-  </table>
-</body>
-</html>
-
+  <html>
+  <head>
+    <title>Transaction Report</title>
+  </head>
+  <body style="font-family: Arial, sans-serif; padding: 10px;">
+    <h1 style="text-align: center; font-size: 20px; color: #336699; page-break-after: avoid; margin: 0;">Transaction Report</h1>
+    <br>
+    <div class="balance" style="color: #336699;">
+      <h3 style="text-align: center; font-size: 14px; color: #336699; margin: 0;">Balance: ${Utils.formatCurrency(balance)}</h3>
+    </div>
+    <br>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 5px;">
+      <tr>
+        <th style="padding: 5px; text-align: left; font-size: 12px; color: green;">Income</th>
+        <th style="padding: 5px; text-align: left; font-size: 12px; color: red;">Expense</th>
+      </tr>
+      <tr>
+        <td style="padding: 5px; text-align: left; font-size: 12px;">${Utils.formatCurrency(incomes)}</td>
+        <td style="padding: 5px; text-align: left; font-size: 12px;">${Utils.formatCurrency(expenses)}</td>
+      </tr>
+    </table>
+    <br>
+    <h3 style="color: #336699; font-size: 12px; margin: 0;">Transactions:</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <th style="padding: 5px; text-align: left; font-size: 12px; color: #336699;">Description</th>
+        <th style="padding: 5px; text-align: left; font-size: 12px; color: #336699;">Amount</th>
+        <th style="padding: 5px; text-align: left; font-size: 12px; color: #336699;">Date</th>
+      </tr>
+      ${transactionsHTML}
+    </table>
+  </body>
+  </html>
+  
+  
+  
   
   `;
 
@@ -89,4 +90,4 @@ function downloadPDFFile(pdfContent) {
   URL.revokeObjectURL(url);
 }
 
-document.getElementById('generateReportButton').addEventListener('click', downloadPDF);
+document.getElementById('generate-report').addEventListener('click', downloadPDF);
