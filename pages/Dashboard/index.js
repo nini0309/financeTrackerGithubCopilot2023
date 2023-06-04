@@ -436,6 +436,94 @@ const AddChart = {
   },
 };
 
+const LineChart = {
+  chart: null,
+
+  create() {
+    const canvas = document.getElementById("lineChart");
+    const ctx = canvas.getContext("2d");
+
+    const data = this.getData();
+
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: {
+          display: true,
+        },
+        y: {
+          display: true,
+          beginAtZero: false,
+          ticks: {
+            callback: function (value) {
+              return Utils.formatCurrency(value);
+            },
+          },
+        },
+      },
+    };
+
+    this.chart = new Chart(ctx, {
+      type: "line",
+      data: data,
+      options: options,
+    });
+
+    this.observeTransactionChanges();
+  },
+
+  updateChart() {
+    const data = this.getData();
+
+    this.chart.data = data;
+    this.chart.update();
+  },
+
+  getData() {
+    const incomes = Transaction.all
+      .filter((transaction) => transaction.amount > 0)
+      .map((transaction) => transaction.amount);
+    const expenses = Transaction.all
+      .filter((transaction) => transaction.amount < 0)
+      .map((transaction) => Math.abs(transaction.amount));
+
+    const labels = Transaction.all.map((transaction) => transaction.date);
+
+    return {
+      labels: labels,
+      datasets: [
+        {
+          label: "Income",
+          data: incomes,
+          fill: false,
+          borderColor: "#28D39A",
+          tension: 0.4,
+        },
+        {
+          label: "Expense",
+          data: expenses,
+          fill: false,
+          borderColor: "#ff7782",
+          tension: 0.4,
+        },
+      ],
+    };
+  },
+
+  observeTransactionChanges() {
+    const observer = new MutationObserver(() => {
+      this.updateChart();
+    });
+
+    const transactionSection = document.getElementById("transaction");
+
+    observer.observe(transactionSection, {
+      childList: true,
+    });
+  },
+};
+
 const App = {
   init() {
     Transaction.all.reverse().forEach(DOM.addTransaction);
@@ -452,3 +540,4 @@ const App = {
 
 App.init();
 AddChart.update();
+LineChart.create();
