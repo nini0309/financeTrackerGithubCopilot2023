@@ -8,14 +8,28 @@ const MobileMenu = {
 };
 
 const Modal = {
+  index : 0,
+  getindex(){
+    return this.index;
+  },
   open() {
     document.getElementById("modalOverlay").classList.add("active");
+  },
+  edit(ind){
+    document.getElementById("modalOverlayEdit").classList.add("active");
+    this.index = ind;
+    FormEdit.setFields(ind);
   },
   close() {
     document.getElementById("modalOverlay").classList.remove("active");
     Form.clearFields();
   },
+  editclose(){
+    document.getElementById("modalOverlayEdit").classList.remove("active");
+    Form.clearFields();
+  },
 };
+
 
 // Display date (November, 24)
 let today = new Date();

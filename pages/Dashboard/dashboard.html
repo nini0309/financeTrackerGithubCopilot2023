@@ -110,6 +110,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody></tbody>
@@ -230,6 +231,75 @@
       </div>
     </div>
     <!--END OF MODAL-------------------- -->
+
+
+    <div class="modal-overlay" id="modalOverlayEdit">
+      <div class="modal">
+        <div id="form">
+          <div class="modalTop">
+            <h2>Edit Transaction</h2>
+            <span
+              class="material-icons"
+              id="close-modal-btn"
+              onclick="Modal.editclose()"
+              >close</span
+            >
+          </div>
+          <form action="" onsubmit="FormEdit.edit(event, Modal.getindex())">
+            <div class="input-group">
+              <label class="sr-only" for="description">Description</label>
+              <input
+                type="text"
+                id="description2"
+                name="description"
+                placeholder="Description"
+              />
+            </div>
+
+            <div class="input-group">
+              <label class="sr-only" for="amount">Amount</label>
+              <input
+                type="number"
+                id="amount2"
+                name="amount"
+                step="1"
+                placeholder="0"
+              />
+              <small class="help"
+                >Select "Income" to incomes and "Expense" to expenses</small
+              >
+            </div>
+
+            <div class="buttons-income-expense">
+              <button
+                id="incomeButton2"
+                onclick="FormEdit.setIncome();  return false;"
+                class="income"
+              >
+                Income
+              </button>
+              <button
+                id="expenseButton2"
+                onclick="FormEdit.setExpense(); return false;"
+              >
+                Expense
+              </button>
+            </div>
+
+            <div class="input-group">
+              <label class="sr-only" for="date">Date</label>
+              <input type="date" id="date2" name="date" />
+            </div>
+
+            <div class="actions">
+              <!-- <a href="#" id="cancelTransaction" class="button cancel" onclick="Modal.close()">Cancelar</a> -->
+              <button class="save">Confirm</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--END OF MODAL EDIT-------------------- -->
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>

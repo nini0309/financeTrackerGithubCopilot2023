@@ -23,6 +23,10 @@ const Transaction = {
     Transaction.all.reverse().splice(index, 1);
     App.reload();
   },
+  edit(transaction, index){
+    Transaction.all[index] = transaction;
+    App.reload();
+  },
   incomes() {
     // total incomes
     let income = 0;
@@ -75,10 +79,13 @@ const DOM = {
       <td>
           <img onclick="Transaction.remove(${index})" src="./assets/x-circle.svg" class="remove-transaction" alt="Remover transação">
       </td>
+      <td>
+          <span onclick="Modal.edit(${index})" class="material-icons">edit</span>
+      </td>
       `;
+      
     return html;
   },
-
   //update balance cards (incomes, expenses and total)
   updateBalance() {
     document.getElementById("incomeDisplay").innerHTML = Utils.formatCurrency(
@@ -138,9 +145,9 @@ const Utils = {
 };
 
 const Form = {
-  description: document.querySelector("input#description"),
-  amount: document.querySelector("input#amount"),
-  date: document.querySelector("input#date"),
+  description: document.querySelector("#modalOverlay input#description"),
+  amount: document.querySelector("#modalOverlay input#amount"),
+  date: document.querySelector("#modalOverlay input#date"),
   incomeOrExpense: "",
 
   setIncome() {
@@ -216,6 +223,99 @@ const Form = {
       Form.clearFields();
       //close modal
       Modal.close();
+    } catch (error) {
+      console.log(error.message);
+    }
+  },
+};
+
+const FormEdit = {
+  description: document.querySelector("#description2"),
+  amount: document.querySelector("#amount2"),
+  date: document.querySelector("#date2"),
+  incomeOrExpense: "",
+
+  setIncome() {
+    FormEdit.incomeOrExpense = "income";
+    document.querySelector("#incomeButton2").classList.add("income");
+    document.querySelector("#expenseButton2").classList.remove("expense");
+  },
+
+  setExpense() {
+    FormEdit.incomeOrExpense = "expense";
+    document.querySelector("#expenseButton2").classList.add("expense");
+    document.querySelector("#incomeButton2").classList.remove("income");
+  },
+
+  getValues() {
+    //get input (modal) values
+    return {
+      description: FormEdit.description.value,
+      amount: FormEdit.amount.value,
+      date: FormEdit.date.value,
+      incomeOrExpense: FormEdit.incomeOrExpense,
+    };
+  },
+
+  validateField() {
+    const { description, amount, date, incomeOrExpense } = FormEdit.getValues();
+
+    if (
+      description.trim() === "" ||
+      amount.trim() === "" ||
+      date.trim() === "" ||
+      incomeOrExpense === ""
+    ) {
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Por favor, preencha todos os campos!",
+      });
+      throw new Error("Por favor, preencha todos os campos");
+    }
+  },
+
+  formatValues() {
+    let { description, amount, date, value } = FormEdit.getValues();
+
+    amount = Utils.formatAmount(amount);
+    date = Utils.formatDate(date);
+
+    return {
+      description,
+      amount,
+      date,
+    };
+  },
+
+  clearFields() {
+    FormEdit.description.value = "";
+    FormEdit.amount.value = "";
+    FormEdit.date.value = "";
+    FormEdit.value = "";
+  },
+
+  setFields(index) {
+    console.log("form edit set field");
+    FormEdit.description.innerHTML= "AAAA";
+  },
+
+  edit(event, index) {
+    event.preventDefault();
+    console.log("formedit edit");
+
+    try {
+      //verify fields before submit
+      FormEdit.validateField();
+      console.log("validated");
+      const transaction = FormEdit.formatValues();
+      //salvar
+      Transaction.remove(index);
+      Transaction.add(transaction);
+      //clear modal fields
+      FormEdit.clearFields();
+      //close modal
+      Modal.editclose();
     } catch (error) {
       console.log(error.message);
     }
