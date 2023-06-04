@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/media.css" />
+    <link rel="stylesheet" href="./styles/calendar.css" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Material icons  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <title>Calendar</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <a href="../../index.html">
+              <img src="assets/logo.png" alt="Logo FinTrack" />
+            </a>
+            <a href="../../index.html"><h3>FinTrack</h3></a>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons" onclick="MobileMenu.close()"
+              >close</span
+            >
+          </div>
+        </div>
+        <div class="sidebar">
+          <a href="./dashboard.html">
+            <span class="material-icons">grid_view</span>
+            <p>Dashboard</p>
+          </a>
+          <a id="historyLink" href="./history.html" class="active" >
+            <span class="material-icons">book</span>
+            <p>History</p>
+          </a>
+          <a href="">
+            <span class="material-icons">contact_page</span>
+            <p>Contact</p>
+          </a>
+          <a href="../../index.html">
+            <span class="material-icons">logout</span>
+            <p>Exit</p>
+          </a>
+        </div>
+      </aside>
+      <!-- END OF SIDEBAR -------------------- -->
+      
+      <div id="calendar"></div>
+<script src='./scripts/calendar.js'></script>
+<script src="./scripts/theme.js"></script>
+    <script src="./index.js"></script>
+    <script src="./scripts/menuAndModal.js"></script>
+<script>
+  var div = document.getElementById("calendar");
+  all_trans = []
+  Transaction.all.forEach((transaction, index) => {
+    let type = transaction.amount>0?"income":"expense";
+    all_trans.push(
+      {
+        desc: transaction.description + " : " + type + " " + transaction.amount,
+        date: new Date(transaction.date),
+      }
+    )
+        }
+    );
+  console.log(all_trans);
+  var cal = new calendar(div, {
+    events: all_trans,
+    ellipse: false,
+  });
+</script>
+  </body>
+</html>

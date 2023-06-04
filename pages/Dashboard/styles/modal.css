@@ -118,7 +118,7 @@
   justify-content: space-between;
 }
 
-.buttons-income-expense #incomeButton{
+.buttons-income-expense #incomeButton, .buttons-income-expense #incomeButton2{
   padding: 1rem 4rem;
   border: 1px solid rgb(207, 207, 207);
   color: black;
@@ -132,7 +132,7 @@
 }
 
 
-.buttons-income-expense #expenseButton{
+.buttons-income-expense #expenseButton, .buttons-income-expense #expenseButton2{
   padding: 1rem 4rem;
   border: 1px solid rgb(207, 207, 207);
   border-radius: .50rem;
