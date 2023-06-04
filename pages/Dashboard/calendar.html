@@ -39,13 +39,16 @@
             <span class="material-icons">grid_view</span>
             <p>Dashboard</p>
           </a>
-          <a id="historyLink" href="./history.html" class="active" >
+          <a id="historyLink" href="./history.html"  >
             <span class="material-icons">book</span>
             <p>History</p>
-          </a>
-          <a href="">
-            <span class="material-icons">contact_page</span>
-            <p>Contact</p>
+            <a href="./calendar.html" class="active">
+              <span class="material-icons">calendar_month</span>
+              <p>Calendar</p>
+            </a>
+            <a href="">
+            <span class="material-icons">settings</span>
+            <p>Settings</p>
           </a>
           <a href="../../index.html">
             <span class="material-icons">logout</span>
@@ -54,30 +57,34 @@
         </div>
       </aside>
       <!-- END OF SIDEBAR -------------------- -->
-      
+      <main style="width: 100%;">
+        <div class="topMenu" style="margin-bottom: 20px;">
+          <h2>Transaction Dates</h2>
+          <h3 id="date-display"></h3>
+        </div>
       <div id="calendar"></div>
-<script src='./scripts/calendar.js'></script>
-<script src="./scripts/theme.js"></script>
+      </main>
+    </div>
+    <script src="./scripts/calendar.js"></script>
+    <script src="./scripts/theme.js"></script>
     <script src="./index.js"></script>
     <script src="./scripts/menuAndModal.js"></script>
-<script>
-  var div = document.getElementById("calendar");
-  all_trans = []
-  Transaction.all.forEach((transaction, index) => {
-    let type = transaction.amount>0?"income":"expense";
-    all_trans.push(
-      {
-        desc: transaction.description + " : " + type + " " + transaction.amount,
-        date: new Date(transaction.date),
-      }
-    )
-        }
-    );
-  console.log(all_trans);
-  var cal = new calendar(div, {
-    events: all_trans,
-    ellipse: false,
-  });
-</script>
+    <script>
+      var div = document.getElementById("calendar");
+      all_trans = [];
+      Transaction.all.forEach((transaction, index) => {
+        let type = transaction.amount > 0 ? "income" : "expense";
+        all_trans.push({
+          desc:
+            transaction.description + " : " + type + " " + transaction.amount,
+          date: new Date(transaction.date),
+        });
+      });
+      console.log(all_trans);
+      var cal = new calendar(div, {
+        events: all_trans,
+        ellipse: false,
+      });
+    </script>
   </body>
 </html>

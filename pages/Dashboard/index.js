@@ -80,10 +80,10 @@ const DOM = {
       <td class="${CSSclass}">${amount}</td>
       <td class="date">${transaction.date}</td>
       <td>
-          <img onclick="Transaction.remove(${index})" src="./assets/x-circle.svg" class="remove-transaction" alt="Remover transação">
+          <span onclick="Modal.edit(${index})" class="material-icons">edit</span>
       </td>
       <td>
-          <span onclick="Modal.edit(${index})" class="material-icons">edit</span>
+          <img onclick="Transaction.remove(${index})" src="./assets/x-circle.svg" class="remove-transaction" alt="Remover transação">
       </td>
       `;
       
