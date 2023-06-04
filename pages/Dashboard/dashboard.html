@@ -39,6 +39,9 @@
             <span class="material-icons">grid_view</span>
             <p>Dashboard</p>
           </a>
+          <a id="historyLink" href="./history.html"  >
+            <span class="material-icons">book</span>
+            <p>History</p>
           <a href="">
             <span class="material-icons">contact_page</span>
             <p>Contact</p>
@@ -160,6 +163,7 @@
             <canvas id="myChart"></canvas>
           </div>
         </div>
+        <button id="generateReportButton" class="button new" >Generate Report</button>
       </div>
       <!--END OF RIGHT - theme-toggler - menu-btn - balance chart -------------------- -->
     </div>
@@ -303,8 +307,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
+    <script type="module" src="./reports/report.js"></script>
     <script src="./scripts/theme.js"></script>
     <script src="./scripts/menuAndModal.js"></script>
   </body>
