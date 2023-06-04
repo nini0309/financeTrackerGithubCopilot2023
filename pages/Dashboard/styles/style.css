@@ -310,7 +310,7 @@ td.income{
   padding: 2rem;
   border-radius: 2rem;
   margin-top: 2.60rem;
-  height: 300px;
+  height: 250px;
 }
 
 .analytics h3{
@@ -378,5 +378,5 @@ td.income{
 
 canvas{ 
   width:280px !important;
-  height:200px !important;
+  height:170px !important;
 }
