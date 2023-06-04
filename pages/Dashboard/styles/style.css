@@ -345,16 +345,18 @@ td.income{
     bottom: 5%;
 } 
 
+
   #buttons {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
   #buttons button {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: white;
     border: none;
     padding: 10px 20px;
+    border-radius: 1.8rem;
     margin-right: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -367,7 +369,6 @@ td.income{
   #buttons button.active {
     background-color: #a8a8a8;
   }
-
 
 
 

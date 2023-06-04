@@ -245,22 +245,22 @@
 
 
 
-button#generateReportButton {
-  padding: 1rem 3rem; 
+button.generate-report {
+  padding: 1rem 3rem;
   background-color: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 1.8rem; 
+  border-radius: 1.8rem;
   cursor: pointer;
-  margin-left: 70px; 
-  margin-top: 20px;
+  margin-left: 70px;
+  margin-top: 15px;
 }
 
-button#generateReportButton:hover {
+button.generate-report:hover {
   filter: brightness(1.1);
 }
 
-button#generateReportButton:active {
+button.generate-report:active {
   filter: brightness(0.9);
 }
 
