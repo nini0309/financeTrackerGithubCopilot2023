@@ -90,6 +90,7 @@ body{
 
 .topMenu{
   display: flex;
+  color: var(--color-button);
   align-items: center;
   justify-content: space-between;
   margin-top: 2rem;

@@ -361,17 +361,6 @@ td.income{
     font-size: 16px;
     cursor: pointer;
   }
-  
-  #buttons button:hover {
-    background-color: #a8a8a8;
-  }
-  
-  #buttons button.active {
-    background-color: #a8a8a8;
-  }
-
-
-
 .button_:focus {
   outline: none;
 }

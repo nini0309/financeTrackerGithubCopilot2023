@@ -186,9 +186,9 @@ function displayExpenses() {
     formatCurrency(value) {
       //formatting value to user local currency
       value = Number(value) / 100;
-      value = value.toLocaleString("pt-BR", {
+      value = value.toLocaleString("hi-IN", {
         style: "currency",
-        currency: "BRL",
+        currency: "INR",
       });
   
       return value;

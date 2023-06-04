@@ -187,9 +187,9 @@ const Form = {
       Swal.fire({
         icon: "warning",
         title: "Oops...",
-        text: "Por favor, preencha todos os campos!",
+        text: "Please fill all the fields!",
       });
-      throw new Error("Por favor, preencha todos os campos");
+      throw new Error("Please fill all the fields");
     }
   },
 
@@ -272,9 +272,9 @@ const FormEdit = {
       Swal.fire({
         icon: "warning",
         title: "Oops...",
-        text: "Por favor, preencha todos os campos!",
+        text: "Please fill all the fields!",
       });
-      throw new Error("Por favor, preencha todos os campos");
+      throw new Error("Please fill all the fields");
     }
   },
 
