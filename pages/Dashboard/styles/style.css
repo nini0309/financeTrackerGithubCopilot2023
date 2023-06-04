@@ -333,8 +333,7 @@ td.income{
 .legendBox{
   width: 100px;
 }
-
-.generateReportButton{
+ .generateReportButton{
     padding: 0.5rem;
     display: flex;
     align-items:center;
@@ -344,6 +343,36 @@ td.income{
     right: 8%;
     z-index: 1;
     bottom: 5%;
+} 
+
+  #buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #buttons button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #buttons button:hover {
+    background-color: #a8a8a8;
+  }
+  
+  #buttons button.active {
+    background-color: #a8a8a8;
+  }
+
+
+
+
+.button_:focus {
+  outline: none;
 }
 
 canvas{ 
