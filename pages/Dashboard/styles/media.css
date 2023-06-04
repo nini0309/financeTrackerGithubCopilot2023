@@ -242,3 +242,26 @@
   width: 1.5rem;
  }
 }
+
+
+
+button#generateReportButton {
+  padding: 1rem 3rem; 
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 1.8rem; 
+  cursor: pointer;
+  margin-left: 70px; 
+  margin-top: 20px;
+}
+
+button#generateReportButton:hover {
+  filter: brightness(1.1);
+}
+
+button#generateReportButton:active {
+  filter: brightness(0.9);
+}
+
+
