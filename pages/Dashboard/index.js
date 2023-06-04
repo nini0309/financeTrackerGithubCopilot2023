@@ -55,12 +55,15 @@ const DOM = {
   transactionsContainer: document.querySelector("#data-table tbody"),
 
   addTransaction(transaction, index) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
-    tr.dataset.index = index;
+    if(index<5){
+      const tr = document.createElement("tr");
+      tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
+      tr.dataset.index = index;
+  
+      // adding transaction on html using the "DOM.innerHTMLTransaction" function
+      DOM.transactionsContainer.appendChild(tr);
 
-    // adding transaction on html using the "DOM.innerHTMLTransaction" function
-    DOM.transactionsContainer.appendChild(tr);
+    }
   },
 
   innerHTMLTransaction(transaction, index) {

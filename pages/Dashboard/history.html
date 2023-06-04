@@ -1,0 +1,132 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/media.css" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Material icons  -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <title>FinTrack</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+            <a href="../../index.html">
+              <img src="assets/logo.png" alt="Logo FinTrack" />
+            </a>
+            <a href="../../index.html"><h3>FinTrack</h3></a>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons" onclick="MobileMenu.close()"
+              >close</span
+            >
+          </div>
+        </div>
+        <div class="sidebar">
+          <a href="./dashboard.html">
+            <span class="material-icons">grid_view</span>
+            <p>Dashboard</p>
+          </a>
+          <a id="historyLink" href="./history.html" class="active" >
+            <span class="material-icons">book</span>
+            <p>History</p>
+          </a>
+          <a href="">
+            <span class="material-icons">contact_page</span>
+            <p>Contact</p>
+          </a>
+          <a href="../../index.html">
+            <span class="material-icons">logout</span>
+            <p>Exit</p>
+          </a>
+        </div>
+      </aside>
+      <!-- END OF SIDEBAR -------------------- -->
+      <main>
+
+
+          <section id="transaction">
+              <h2 class="sr-only">Transactions</h2>
+              
+              <div class="last-transactions">
+                  <div class="table-top">
+                      <h2>Last Transactions</h2>
+                    </div>
+                    <button id="showAllButton">Show All</button>
+                    <button id="showIncomesButton">Show Incomes</button>
+                <button id="showExpensesButton">Show Expenses</button>
+                    
+                    <div class="table-container">
+                        <table id="data-table">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+            
+            </div>
+          </div>
+        </section>
+
+        <!--END OF TRANSACTION SECTION-------------------- -->
+
+        <div class="addTransactionMobileButton">
+          <button href="#" id="newTransactionMobile" onclick="Modal.open()">
+            <span class="material-icons">add</span>
+          </button>
+        </div>
+      </main>
+
+      <div class="right">
+        <div class="top">
+          <button id="menu-btn">
+            <span
+              class="material-icons"
+              id="mobile-menu"
+              onclick="MobileMenu.open()"
+              >menu</span
+            >
+          </button>
+
+          <div class="theme-toggler">
+            <span
+              class="material-icons active"
+              id="toggle-light"
+              onclick="ThemeToggler.Light()"
+              >light_mode</span
+            >
+            <span
+              class="material-icons"
+              id="toggle-dark"
+              onclick="ThemeToggler.Dark()"
+              >dark_mode</span
+            >
+          </div>
+        </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="history.js"></script>
+    <script src="./scripts/theme.js"></script>
+    <script src="./scripts/menuAndModal.js"></script>
+  </body>
+</html>
