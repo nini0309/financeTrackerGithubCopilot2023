@@ -21,7 +21,7 @@ aside .logo{
 }
 
 aside .logo > a > img{
-  width: 33px;
+  width: 80px;
 }
 
 aside .logo h3{
@@ -64,7 +64,7 @@ aside .sidebar a {
 
 aside .sidebar a.active{
   background: var(--color-light);
-  color: var(--color-primary);
+  color: var(--color-button);
   margin-left: 0;
 }
 
@@ -72,12 +72,12 @@ aside .sidebar a.active:before{
   content: '';
   width: 6px;
   height: 100%;
-  background: var(--color-primary);
+  background: var(--color-button);
 }
 
 
 aside .sidebar a.active span{
-  color: var(--color-primary);
+  color: var(--color-button);
   margin-left: calc(1rem - 3px);
 }
 
@@ -86,11 +86,11 @@ aside .sidebar a > span{
 }
 
 aside .sidebar a:hover{
-  color: var(--color-primary);
+  color: var(--color-button);
 } 
 
 aside .sidebar a:hover span{
-  color: var(--color-primary);
+  color: var(--color-button);
   margin-left: 1rem;
 } 
 

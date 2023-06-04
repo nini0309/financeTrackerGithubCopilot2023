@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/modal.css" />
     <link rel="stylesheet" href="./styles/media.css" />
-    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 
     <!-- Material icons  -->
     <link
@@ -16,7 +16,7 @@
       rel="stylesheet"
     />
 
-    <title>Monances</title>
+    <title>FinTrack</title>
   </head>
   <body>
     <div class="container">
@@ -24,9 +24,9 @@
         <div class="top">
           <div class="logo">
             <a href="../../index.html">
-              <img src="assets/logo.svg" alt="Logo Monances" />
+              <img src="assets/logo.png" alt="Logo FinTrack" />
             </a>
-            <a href="../../index.html"><h3>monances</h3></a>
+            <a href="../../index.html"><h3>FinTrack</h3></a>
           </div>
           <div class="close" id="close-btn">
             <span class="material-icons" onclick="MobileMenu.close()"
@@ -39,7 +39,7 @@
             <span class="material-icons">grid_view</span>
             <p>Dashboard</p>
           </a>
-          <a href="https://www.linkedin.com/in/vinicius-rodrigues-5897831b8/">
+          <a href="">
             <span class="material-icons">contact_page</span>
             <p>Contact</p>
           </a>
@@ -63,7 +63,7 @@
               <span>Incomes</span>
               <img src="assets/incomes.svg" alt="Imagem de entradas" />
             </h3>
-            <p id="incomeDisplay">R$ 0,00</p>
+            <p id="incomeDisplay">₹ 0</p>
             <p id="dateDisplay"></p>
           </div>
 
@@ -72,15 +72,15 @@
               <span>Expenses</span>
               <img src="assets/expenses.svg" alt="Imagem de saídas" />
             </h3>
-            <p id="expenseDisplay">R$ 0,00</p>
+            <p id="expenseDisplay">₹ 0</p>
           </div>
 
           <div class="card total">
             <h3>
-              <span>Total</span>
-              <img class="total" src="assets/total.svg" alt="Imagem de total" />
+              <span>Balance</span>
+              <img class="total" src="assets/total.png" alt="Imagem de total" width="50px" />
             </h3>
-            <p id="totalDisplay">R$ 0,00</p>
+            <p id="totalDisplay">₹ 0</p>
           </div>
         </section>
         <!--END OF BALANCED SECTION-------------------- -->
@@ -192,8 +192,8 @@
                 type="number"
                 id="amount"
                 name="amount"
-                step="0.01"
-                placeholder="0.00"
+                step="1"
+                placeholder="0"
               />
               <small class="help"
                 >Select "Income" to incomes and "Expense" to expenses</small

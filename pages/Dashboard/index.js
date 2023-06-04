@@ -128,9 +128,9 @@ const Utils = {
   formatCurrency(value) {
     //formatting value to user local currency
     value = Number(value) / 100;
-    value = value.toLocaleString("pt-BR", {
+    value = value.toLocaleString("hi-IN", {
       style: "currency",
-      currency: "BRL",
+      currency: "INR",
     });
 
     return value;
@@ -244,7 +244,7 @@ const AddChart = {
         datasets: [
           {
             data: [Transaction.incomes() / 100, Transaction.expenses() / 100],
-            backgroundColor: ["#28D39A", "#ff7782", "#7380EC"],
+            backgroundColor: ["#28D39A", "#ff7782", "#3244AD"],
             usePointStyle: true,
           },
         ],
